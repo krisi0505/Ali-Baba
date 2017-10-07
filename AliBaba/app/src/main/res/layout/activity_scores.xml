@@ -23,7 +23,6 @@
             android:text="High Scores"
             android:textSize="40dp"
             android:gravity="center" />
-
     </LinearLayout>
 
 </RelativeLayout>

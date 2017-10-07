@@ -27,11 +27,11 @@
         <TextView
             android:id="@+id/instructions_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bla bla bla"
-            android:textSize="20dp"
-            android:gravity="center" />
-
+            android:layout_height="match_parent"
+            style="@style/TextStyle"
+            android:text="@string/instructions_content"
+            android:gravity="center"
+            />
     </LinearLayout>
 
 </RelativeLayout>

@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="editTextColor">@color/colorPrimary</item>
+        <item name="android:textSize">28dp</item>
+    </style>
+
     <style name="ButtonStyle"></style>
 
 </resources>

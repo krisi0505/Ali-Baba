@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <ImageView
         android:src="@drawable/treasure"
@@ -10,4 +10,19 @@
         android:layout_height="fill_parent"
         android:layout_width="fill_parent" />
 
+    <LinearLayout
+        android:id="@+id/precious"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/precious_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="40dp"
+            android:gravity="center" />
+    </LinearLayout>
 </RelativeLayout>
