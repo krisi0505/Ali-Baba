@@ -30,8 +30,22 @@ public class PlayActivity extends AppCompatActivity {
 
             //create an imageview
             final ImageView img = new ImageView(this);
-            img.setImageResource(R.drawable.diamond);
             img.setLayoutParams(new LayoutParams(64, 64));
+            if(randomPrice<100){
+                img.setImageResource(R.drawable.coins);
+            }
+            else if(randomPrice<200){
+                img.setImageResource(R.drawable.emerald);
+            }
+            else if(randomPrice<300){
+                img.setImageResource(R.drawable.ruby);
+            }
+            else if(randomPrice<400){
+                img.setImageResource(R.drawable.ring);
+            }
+            else{
+                img.setImageResource(R.drawable.diamond);
+            }
 
             // create a new textview
             final TextView price = new TextView(this);
@@ -39,7 +53,7 @@ public class PlayActivity extends AppCompatActivity {
             // set some properties of textview
             price.setText("$" + randomPrice);
             price.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1));
-            price.setTextSize(28);
+            price.setTextSize(20);
             price.setGravity(17);//center
 
             final LinearLayout item = new LinearLayout(this);
