@@ -16,5 +16,15 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:gravity="center">
+
+
+            <!--<ImageView-->
+                <!--android:id="@+id/lte3G"-->
+                <!--android:layout_width="64dp"-->
+                <!--android:layout_height="64dp"-->
+                <!--android:gravity="center_horizontal|center_vertical"-->
+                <!--android:src="@drawable/diamond" />-->
+        <!--</LinearLayout>-->
+
     </LinearLayout>
 </RelativeLayout>
