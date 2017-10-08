@@ -1,5 +1,6 @@
 package com.project.krisi.alibaba;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ public class PlayActivity extends AppCompatActivity {
 
         LinearLayout jemContainer =(LinearLayout)findViewById(R.id.precious);
 
-        final int N = 3; // total number of textviews to add
+        final int N = 5; // total number of textviews to add
 
         final TextView[] prices = new TextView[N]; // create an empty array;
         final LinearLayout[] items = new LinearLayout[N];
@@ -54,8 +55,10 @@ public class PlayActivity extends AppCompatActivity {
             price.setText("$" + randomPrice);
             price.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1));
             price.setTextSize(20);
+            price.setTextColor(Color.WHITE);
             price.setGravity(17);//center
 
+            //create a linearlayout for each item
             final LinearLayout item = new LinearLayout(this);
             item.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
             item.setGravity(17);//center
