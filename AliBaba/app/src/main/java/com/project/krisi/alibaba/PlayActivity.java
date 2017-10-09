@@ -1,9 +1,12 @@
 package com.project.krisi.alibaba;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.LinearLayout;
@@ -74,5 +77,14 @@ public class PlayActivity extends AppCompatActivity {
             // save a reference to the textview for later
             prices[i-1] = price;
         }
+
+        Button btnGo = (Button) findViewById(R.id.btn_go);
+        btnGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent savingActivity = new Intent(PlayActivity.this, SavingActivity.class);
+                startActivity(savingActivity);
+            }
+        });
     }
 }

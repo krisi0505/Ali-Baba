@@ -42,14 +42,13 @@
         android:layout_marginBottom="10dp"/>
 
     <Button
-        android:id="@+id/btn_run"
+        android:id="@+id/btn_go"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:textColor="#FFFFFF"
-        android:background="#2ECC40"
         android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginRight="10dp"
+        style="@style/Widget.AppCompat.Button.Colored"/>
 </RelativeLayout>

@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SavingActivity">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +19,7 @@
         <activity android:name=".PlayActivity" />
         <activity android:name=".InstructionsActivity" />
         <activity android:name=".ScoresActivity" />
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".SavingActivity"></activity>
     </application>
 
 </manifest>
