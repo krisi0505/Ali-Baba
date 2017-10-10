@@ -1,9 +1,12 @@
 package com.project.krisi.alibaba;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -19,6 +22,40 @@ public class PlayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+
+        ImageView imgBag = (ImageView)findViewById(R.id.img_bag);
+        imgBag.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                int dragEvent = event.getAction();
+
+                switch(dragEvent){
+                    case DragEvent.ACTION_DRAG_ENTERED:
+                        break;
+                    case DragEvent.ACTION_DRAG_EXITED:
+                        break;
+                    case DragEvent.ACTION_DROP:
+                        final View view = (View) event.getLocalState();
+                        view.setVisibility(View.INVISIBLE);
+                        break;
+                    case DragEvent.ACTION_DRAG_ENDED:
+                        final View vie = (View) event.getLocalState();
+                        vie.setVisibility(View.INVISIBLE);
+                        break;
+                    default:break;
+                }
+                return true;
+            }
+        });
+
+        final Button btnGo = (Button) findViewById(R.id.btn_go);
+        btnGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent savingActivity = new Intent(PlayActivity.this, SavingActivity.class);
+                startActivity(savingActivity);
+            }
+        });
 
         LinearLayout jemContainer =(LinearLayout)findViewById(R.id.precious);
 
@@ -66,6 +103,20 @@ public class PlayActivity extends AppCompatActivity {
             item.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
             item.setGravity(17);//center
             item.setOrientation(LinearLayout.VERTICAL);
+            item.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    ClipData data = ClipData.newPlainText("","");
+                    View.DragShadowBuilder myShadowBuilder = new View.DragShadowBuilder(v);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        v.startDragAndDrop(data, myShadowBuilder, v,0);
+                    } else {
+                        v.startDrag(data, myShadowBuilder, v,0);
+                    }
+
+                    return true;
+                }
+            });
 
             // add the textview to the linearlayout
             item.addView(img);
@@ -78,13 +129,6 @@ public class PlayActivity extends AppCompatActivity {
             prices[i-1] = price;
         }
 
-        Button btnGo = (Button) findViewById(R.id.btn_go);
-        btnGo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent savingActivity = new Intent(PlayActivity.this, SavingActivity.class);
-                startActivity(savingActivity);
-            }
-        });
+
     }
 }
