@@ -30,17 +30,9 @@ public class PlayActivity extends AppCompatActivity {
                 int dragEvent = event.getAction();
 
                 switch(dragEvent){
-                    case DragEvent.ACTION_DRAG_ENTERED:
-                        break;
-                    case DragEvent.ACTION_DRAG_EXITED:
-                        break;
                     case DragEvent.ACTION_DROP:
                         final View view = (View) event.getLocalState();
                         view.setVisibility(View.INVISIBLE);
-                        break;
-                    case DragEvent.ACTION_DRAG_ENDED:
-                        final View vie = (View) event.getLocalState();
-                        vie.setVisibility(View.INVISIBLE);
                         break;
                     default:break;
                 }
