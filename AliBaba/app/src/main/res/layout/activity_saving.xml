@@ -11,11 +11,21 @@
         android:layout_width="fill_parent" />
 
     <LinearLayout
+        android:id="@+id/saving_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_centerInParent="true"
         android:gravity="center">
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your score is:"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:gravity="center" />
 
         <TextView
             android:id="@+id/scores_title"

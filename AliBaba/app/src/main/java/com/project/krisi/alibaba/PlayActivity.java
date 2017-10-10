@@ -21,19 +21,23 @@ import java.util.Random;
 
 public class PlayActivity extends AppCompatActivity {
 
+    public int knapSack(int[] prices, int[] volumes, int capacity, int n){
+        if (n == 0 || capacity == 0) {
+            return 0;
+        }
+        if (volumes[n-1] > capacity) {
+            return knapSack(prices, volumes, capacity, n - 1);
+        }
+        else {
+            return Math.max( prices[n-1] + knapSack(prices, volumes, capacity-volumes[n-1], n-1),
+                    knapSack(prices, volumes, capacity, n-1));
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
-
-        final Button btnGo = (Button) findViewById(R.id.btn_go);
-        btnGo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent savingActivity = new Intent(PlayActivity.this, SavingActivity.class);
-                startActivity(savingActivity);
-            }
-        });
 
         LinearLayout jemContainer =(LinearLayout)findViewById(R.id.precious);
 
@@ -122,12 +126,12 @@ public class PlayActivity extends AppCompatActivity {
             prices[i-1] = price;
         }
 
-        TextView capacity = (TextView)findViewById(R.id.capacity);
-        TextView total = (TextView)findViewById(R.id.total);
+        final TextView capacity = (TextView)findViewById(R.id.capacity);
+        final TextView total = (TextView)findViewById(R.id.total);
 
         ImageView imgBag = (ImageView)findViewById(R.id.img_bag);
         imgBag.setOnDragListener(new View.OnDragListener() {
-            public int capacityLeft = 0;
+            public int capacityLeft = 20;
             public int money = 0;
 
             @Override
@@ -137,12 +141,37 @@ public class PlayActivity extends AppCompatActivity {
                 switch(dragEvent){
                     case DragEvent.ACTION_DROP:
                         final ViewGroup view = (ViewGroup) event.getLocalState();
-                        view.setVisibility(View.INVISIBLE);
-                        
+
+                        final TextView tvPrice = (TextView)view.getChildAt(1);
+                        String price = tvPrice.getText().toString();
+                        final TextView tvVolume = (TextView)view.getChildAt(2);
+                        String volume = tvVolume.getText().toString();
+                        int priceNumber = Integer.parseInt(price.substring(1));
+                        int volumeNumber = Integer.parseInt(volume.substring(0,volume.length()-1));
+                        if(capacityLeft - volumeNumber >= 0) {
+                            money += priceNumber;
+                            capacityLeft -= volumeNumber;
+                            total.setText("Total: $" + money);
+                            capacity.setText("Capacity: " + capacityLeft);
+                            view.setVisibility(View.INVISIBLE);
+                        }
                         break;
                     default:break;
                 }
+
                 return true;
+            }
+        });
+
+        final Button btnGo = (Button) findViewById(R.id.btn_go);
+        btnGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent savingActivity = new Intent(PlayActivity.this, SavingActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("score", 20);
+                savingActivity.putExtras(bundle);
+                startActivity(savingActivity);
             }
         });
     }
