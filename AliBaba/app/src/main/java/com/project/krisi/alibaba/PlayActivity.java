@@ -43,8 +43,8 @@ public class PlayActivity extends AppCompatActivity {
 
         final int N = 5; // total number of textviews to add
 
-        final TextView[] prices = new TextView[N]; // create an empty array;
-        final TextView[] volumes = new TextView[N]; // create an empty array;
+        final int[] prices = new int[N]; // create an empty array;
+        final int[] volumes = new int[N]; // create an empty array;
         final LinearLayout[] items = new LinearLayout[N];
 
         for (int i = 1; i <= N; i++) {
@@ -123,7 +123,8 @@ public class PlayActivity extends AppCompatActivity {
             jemContainer.addView(item);
 
             // save a reference to the textview for later
-            prices[i-1] = price;
+            prices[i-1] = randomPrice;
+            volumes[i-1] = randomVolume;
         }
 
         final TextView capacity = (TextView)findViewById(R.id.capacity);
@@ -163,13 +164,21 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
+
+
         final Button btnGo = (Button) findViewById(R.id.btn_go);
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent savingActivity = new Intent(PlayActivity.this, SavingActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putInt("score", 20);
+                final int maxScore = knapSack(prices, volumes, 20, N);
+
+                String strTotal = total.getText().toString();
+                final int playerScore = Integer.parseInt(strTotal.substring(8));
+
+                int finalScore = playerScore*100/maxScore;
+                bundle.putInt("score", finalScore);
                 savingActivity.putExtras(bundle);
                 startActivity(savingActivity);
             }
