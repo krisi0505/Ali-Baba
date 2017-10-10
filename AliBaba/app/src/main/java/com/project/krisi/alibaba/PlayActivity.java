@@ -14,6 +14,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import java.util.Random;
 
 public class PlayActivity extends AppCompatActivity {
@@ -22,23 +25,6 @@ public class PlayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
-
-        ImageView imgBag = (ImageView)findViewById(R.id.img_bag);
-        imgBag.setOnDragListener(new View.OnDragListener() {
-            @Override
-            public boolean onDrag(View v, DragEvent event) {
-                int dragEvent = event.getAction();
-
-                switch(dragEvent){
-                    case DragEvent.ACTION_DROP:
-                        final View view = (View) event.getLocalState();
-                        view.setVisibility(View.INVISIBLE);
-                        break;
-                    default:break;
-                }
-                return true;
-            }
-        });
 
         final Button btnGo = (Button) findViewById(R.id.btn_go);
         btnGo.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +40,7 @@ public class PlayActivity extends AppCompatActivity {
         final int N = 5; // total number of textviews to add
 
         final TextView[] prices = new TextView[N]; // create an empty array;
+        final TextView[] volumes = new TextView[N]; // create an empty array;
         final LinearLayout[] items = new LinearLayout[N];
 
         for (int i = 1; i <= N; i++) {
@@ -90,6 +77,19 @@ public class PlayActivity extends AppCompatActivity {
             price.setTextColor(Color.WHITE);
             price.setGravity(17);//center
 
+            Random randV = new Random();
+            int  randomVolume = randV.nextInt(16) + 1;
+
+            // create a new textview
+            final TextView volume = new TextView(this);
+
+            // set some properties of textview
+            volume.setText(randomVolume + "L");
+            volume.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1));
+            volume.setTextSize(20);
+            volume.setTextColor(Color.WHITE);
+            volume.setGravity(17);//center
+
             //create a linearlayout for each item
             final LinearLayout item = new LinearLayout(this);
             item.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
@@ -113,6 +113,7 @@ public class PlayActivity extends AppCompatActivity {
             // add the textview to the linearlayout
             item.addView(img);
             item.addView(price);
+            item.addView(volume);
 
             //add the item to the linearlayout
             jemContainer.addView(item);
@@ -121,6 +122,28 @@ public class PlayActivity extends AppCompatActivity {
             prices[i-1] = price;
         }
 
+        TextView capacity = (TextView)findViewById(R.id.capacity);
+        TextView total = (TextView)findViewById(R.id.total);
 
+        ImageView imgBag = (ImageView)findViewById(R.id.img_bag);
+        imgBag.setOnDragListener(new View.OnDragListener() {
+            public int capacityLeft = 0;
+            public int money = 0;
+
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                int dragEvent = event.getAction();
+
+                switch(dragEvent){
+                    case DragEvent.ACTION_DROP:
+                        final ViewGroup view = (ViewGroup) event.getLocalState();
+                        view.setVisibility(View.INVISIBLE);
+                        
+                        break;
+                    default:break;
+                }
+                return true;
+            }
+        });
     }
 }

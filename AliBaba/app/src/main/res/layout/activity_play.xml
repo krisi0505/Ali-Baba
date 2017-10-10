@@ -11,13 +11,15 @@
         android:layout_width="fill_parent" />
 
     <TextView
+        android:id="@+id/total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Score: 0"
+        android:text="Total: $0"
         android:textSize="20dp"
         android:textColor="#FFFFFF" />
 
     <TextView
+        android:id="@+id/capacity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Capacity: 20L"
