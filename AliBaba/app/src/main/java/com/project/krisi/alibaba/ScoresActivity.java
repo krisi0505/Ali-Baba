@@ -7,6 +7,8 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.orm.query.Select;
+
 import java.util.List;
 
 public class ScoresActivity extends AppCompatActivity {
@@ -16,12 +18,14 @@ public class ScoresActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scores);
 
-        List<HighScores> scores = HighScores.listAll(HighScores.class);
+        //List<HighScores> scores = HighScores.listAll(HighScores.class);
 
-        //List<HighScores> scores = HighScores.findWithQuery(HighScores.class, "SELECT * FROM HighScores LIMIT 5", "myscores");
+        List<HighScores> scores = Select.from(HighScores.class)
+                .orderBy("score desc")
+                .list();
 
         TableLayout table = (TableLayout)findViewById(R.id.table_layout);
-        
+
         for(HighScores result:scores){
             TableRow row = new TableRow(this);
             row.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
