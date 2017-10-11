@@ -18,6 +18,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent playActivity = new Intent(HomeActivity.this, PlayActivity.class);
+
+                Bundle myBundle = new Bundle();
+                myBundle.putInt("score", 0);
+                myBundle.putInt("N", 3);
+                playActivity.putExtras(myBundle);
+
                 startActivity(playActivity);
             }
         });

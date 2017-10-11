@@ -39,7 +39,10 @@ public class PlayActivity extends AppCompatActivity {
 
         LinearLayout jemContainer =(LinearLayout)findViewById(R.id.precious);
 
-        final int N = 5; // total number of textviews to add
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        final int score = bundle.getInt("score");
+        final int N = bundle.getInt("N"); // total number of textviews to add
 
         final int[] prices = new int[N]; // create an empty array;
         final int[] volumes = new int[N]; // create an empty array;
@@ -165,18 +168,35 @@ public class PlayActivity extends AppCompatActivity {
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent savingActivity = new Intent(PlayActivity.this, SavingActivity.class);
-                Bundle bundle = new Bundle();
-                final int maxScore = knapSack(prices, volumes, 20, N);
+                if(N == 3 || N ==4){
+                    Intent playActivityIntent = new Intent(PlayActivity.this, PlayActivity.class);
+                    Bundle myBundle = new Bundle();
+                    final int maxScore = knapSack(prices, volumes, 20, N);
 
-                String strTotal = total.getText().toString();
-                final int playerScore = Integer.parseInt(strTotal.substring(8));
+                    String strTotal = total.getText().toString();
+                    final int playerScore = Integer.parseInt(strTotal.substring(8));
 
-                int finalScore = playerScore*100/maxScore;
-                bundle.putInt("score", finalScore);
-                savingActivity.putExtras(bundle);
-                startActivity(savingActivity);
-                finish();
+                    int finalScore = playerScore*100/maxScore;
+                    myBundle.putInt("score", finalScore + score);
+                    myBundle.putInt("N", N + 1);
+                    playActivityIntent.putExtras(myBundle);
+                    startActivity(playActivityIntent);
+                    finish();
+                }
+                else{
+                    Intent savingActivity = new Intent(PlayActivity.this, SavingActivity.class);
+                    Bundle myBundle = new Bundle();
+                    final int maxScore = knapSack(prices, volumes, 20, N);
+
+                    String strTotal = total.getText().toString();
+                    final int playerScore = Integer.parseInt(strTotal.substring(8));
+
+                    int finalScore = playerScore*100/maxScore;
+                    myBundle.putInt("score", finalScore + score);
+                    savingActivity.putExtras(myBundle);
+                    startActivity(savingActivity);
+                    finish();
+                }
             }
         });
     }
