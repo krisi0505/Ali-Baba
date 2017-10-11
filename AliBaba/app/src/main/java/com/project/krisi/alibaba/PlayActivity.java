@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -99,9 +100,9 @@ public class PlayActivity extends AppCompatActivity {
             item.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
             item.setGravity(17);//center
             item.setOrientation(LinearLayout.VERTICAL);
-            item.setOnLongClickListener(new View.OnLongClickListener() {
+            item.setOnTouchListener(new View.OnTouchListener() {
                 @Override
-                public boolean onLongClick(View v) {
+                public boolean onTouch(View v, MotionEvent event) {
                     ClipData data = ClipData.newPlainText("","");
                     View.DragShadowBuilder myShadowBuilder = new View.DragShadowBuilder(v);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -109,9 +110,22 @@ public class PlayActivity extends AppCompatActivity {
                     } else {
                         v.startDrag(data, myShadowBuilder, v,0);
                     }
-
                     return true;
                 }
+
+
+//                @Override
+//                public boolean onLongClick(View v) {
+//                    ClipData data = ClipData.newPlainText("","");
+//                    View.DragShadowBuilder myShadowBuilder = new View.DragShadowBuilder(v);
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                        v.startDragAndDrop(data, myShadowBuilder, v,0);
+//                    } else {
+//                        v.startDrag(data, myShadowBuilder, v,0);
+//                    }
+//
+//                    return true;
+//                }
             });
 
             // add the textview to the linearlayout
