@@ -21,7 +21,7 @@ public class ScoresActivity extends AppCompatActivity {
         //List<HighScores> scores = HighScores.listAll(HighScores.class);
 
         List<HighScores> scores = Select.from(HighScores.class)
-                .orderBy("score desc")
+                .orderBy("score desc").limit("1")
                 .list();
 
         TableLayout table = (TableLayout)findViewById(R.id.table_layout);
