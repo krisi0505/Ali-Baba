@@ -38,6 +38,7 @@ public class SavingActivity extends AppCompatActivity {
 
                 Intent homeActivityIntent = new Intent(SavingActivity.this, HomeActivity.class);
                 startActivity(homeActivityIntent);
+                finish();
             }
         });
 
