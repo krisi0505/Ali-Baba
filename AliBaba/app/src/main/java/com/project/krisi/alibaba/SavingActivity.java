@@ -36,6 +36,9 @@ public class SavingActivity extends AppCompatActivity {
 
                 HighScores player = new HighScores(name, score);
                 player.save();
+
+                Intent homeActivity = new Intent(SavingActivity.this, HomeActivity.class);
+                startActivity(homeActivity);
             }
         });
 

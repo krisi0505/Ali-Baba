@@ -176,6 +176,7 @@ public class PlayActivity extends AppCompatActivity {
                 bundle.putInt("score", finalScore);
                 savingActivity.putExtras(bundle);
                 startActivity(savingActivity);
+                finish();
             }
         });
     }
