@@ -112,20 +112,6 @@ public class PlayActivity extends AppCompatActivity {
                     }
                     return true;
                 }
-
-
-//                @Override
-//                public boolean onLongClick(View v) {
-//                    ClipData data = ClipData.newPlainText("","");
-//                    View.DragShadowBuilder myShadowBuilder = new View.DragShadowBuilder(v);
-//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//                        v.startDragAndDrop(data, myShadowBuilder, v,0);
-//                    } else {
-//                        v.startDrag(data, myShadowBuilder, v,0);
-//                    }
-//
-//                    return true;
-//                }
             });
 
             // add the textview to the linearlayout
