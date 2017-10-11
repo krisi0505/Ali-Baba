@@ -55,8 +55,6 @@
                     android:gravity="center"
                     android:layout_span="6"></TextView>
             </TableRow>
-
         </TableLayout>
     </LinearLayout>
-
 </RelativeLayout>

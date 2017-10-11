@@ -22,7 +22,6 @@ public class SavingActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-
         final int score = bundle.getInt("score");
 
         showScore(score);
@@ -37,8 +36,8 @@ public class SavingActivity extends AppCompatActivity {
                 HighScores player = new HighScores(name, score);
                 player.save();
 
-                Intent homeActivity = new Intent(SavingActivity.this, HomeActivity.class);
-                startActivity(homeActivity);
+                Intent homeActivityIntent = new Intent(SavingActivity.this, HomeActivity.class);
+                startActivity(homeActivityIntent);
             }
         });
 

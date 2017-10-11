@@ -5,7 +5,6 @@ package com.project.krisi.alibaba;
  */
 
 import android.app.Application;
-
 import com.orm.SugarContext;
 
 public class SqliteApp extends Application {

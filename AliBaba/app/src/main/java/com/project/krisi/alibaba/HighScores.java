@@ -28,10 +28,10 @@ public class HighScores extends SugarRecord {
     }
 
     public void setName(String name) {
-        this.name = name;//error handling
+        this.name = name;
     }
 
     public void setScore(int score) {
-        this.score = score;//error handling
+        this.score = score;
     }
 }
