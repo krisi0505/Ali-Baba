@@ -3,6 +3,7 @@
     package="com.project.krisi.alibaba">
 
     <application
+        android:name=".SqliteApp"
         android:allowBackup="true"
         android:icon="@drawable/chest"
         android:label="@string/app_name"
@@ -20,6 +21,10 @@
         <activity android:name=".InstructionsActivity" />
         <activity android:name=".ScoresActivity" />
         <activity android:name=".SavingActivity"></activity>
+        <meta-data android:name="DATABASE" android:value="high_scores.db" />
+        <meta-data android:name="VERSION" android:value="2" />
+        <meta-data android:name="QUERY_LOG" android:value="true" />
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.project.krisi" />
     </application>
 
 </manifest>

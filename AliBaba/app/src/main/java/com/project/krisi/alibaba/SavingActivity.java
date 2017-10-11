@@ -1,9 +1,11 @@
 package com.project.krisi.alibaba;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.LinearLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class SavingActivity extends AppCompatActivity {
@@ -21,8 +23,23 @@ public class SavingActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
-        int score = bundle.getInt("score");
+        final int score = bundle.getInt("score");
 
         showScore(score);
+
+        Button btnSave = (Button) findViewById(R.id.btn_save);
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText et = (EditText)findViewById(R.id.edit_text);
+                String name = et.getText().toString();
+
+                HighScores player = new HighScores(name, score);
+                player.save();
+            }
+        });
+
+
+
     }
 }

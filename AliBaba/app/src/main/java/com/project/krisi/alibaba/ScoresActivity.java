@@ -1,10 +1,9 @@
 package com.project.krisi.alibaba;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.support.v7.app.AppCompatActivity;
+
+import java.util.List;
 
 public class ScoresActivity extends AppCompatActivity {
 
@@ -13,5 +12,8 @@ public class ScoresActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scores);
 
+        List<HighScores> scores = HighScores.listAll(HighScores.class);
+
+        
     }
 }

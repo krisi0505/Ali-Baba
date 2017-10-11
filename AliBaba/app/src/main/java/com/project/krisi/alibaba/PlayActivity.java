@@ -45,7 +45,6 @@ public class PlayActivity extends AppCompatActivity {
 
         final int[] prices = new int[N]; // create an empty array;
         final int[] volumes = new int[N]; // create an empty array;
-        final LinearLayout[] items = new LinearLayout[N];
 
         for (int i = 1; i <= N; i++) {
             //create a random price
@@ -163,8 +162,6 @@ public class PlayActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-
 
         final Button btnGo = (Button) findViewById(R.id.btn_go);
         btnGo.setOnClickListener(new View.OnClickListener() {
