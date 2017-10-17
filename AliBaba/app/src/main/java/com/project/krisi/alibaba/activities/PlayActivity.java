@@ -151,7 +151,6 @@ public class PlayActivity extends KnapsackActivity {
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                     Intent savingActivity = new Intent(PlayActivity.this, SavingActivity.class);
                     Bundle myBundle = new Bundle();
                     final int maxScore = knapSack(prices, volumes, 20, N);
@@ -164,7 +163,6 @@ public class PlayActivity extends KnapsackActivity {
                     savingActivity.putExtras(myBundle);
                     startActivity(savingActivity);
                     finish();
-
             }
         });
     }
