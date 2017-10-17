@@ -28,10 +28,8 @@ public class PlayActivity extends KnapsackActivity {
 
         LinearLayout jemContainer =(LinearLayout)findViewById(R.id.precious);
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        final int score = bundle.getInt("score");
-        final int N = bundle.getInt("N"); // total number of textviews to add
+        final int score = 0;
+        final int N = 3; // total number of textviews to add
 
         final int[] prices = new int[N]; // create an empty array;
         final int[] volumes = new int[N]; // create an empty array;
@@ -115,8 +113,8 @@ public class PlayActivity extends KnapsackActivity {
             volumes[i-1] = randomVolume;
         }
 
-        final TextView capacity = (TextView)findViewById(R.id.capacity);
-        final TextView total = (TextView)findViewById(R.id.total);
+        final TextView capacity = (TextView)findViewById(R.id.capacity_number);
+        final TextView total = (TextView)findViewById(R.id.total_number);
 
         ImageView imgBag = (ImageView)findViewById(R.id.img_bag);
         imgBag.setOnDragListener(new View.OnDragListener() {
@@ -127,25 +125,22 @@ public class PlayActivity extends KnapsackActivity {
             public boolean onDrag(View v, DragEvent event) {
                 int dragEvent = event.getAction();
 
-                switch(dragEvent){
-                    case DragEvent.ACTION_DROP:
-                        final ViewGroup view = (ViewGroup) event.getLocalState();
+                if(dragEvent == DragEvent.ACTION_DROP) {
+                    final ViewGroup view = (ViewGroup) event.getLocalState();
 
-                        final TextView tvPrice = (TextView)view.getChildAt(1);
-                        String price = tvPrice.getText().toString();
-                        final TextView tvVolume = (TextView)view.getChildAt(2);
-                        String volume = tvVolume.getText().toString();
-                        int priceNumber = Integer.parseInt(price.substring(1));
-                        int volumeNumber = Integer.parseInt(volume.substring(0,volume.length()-1));
-                        if(capacityLeft - volumeNumber >= 0) {
-                            money += priceNumber;
-                            capacityLeft -= volumeNumber;
-                            total.setText("Total: $" + money);
-                            capacity.setText("Capacity: " + capacityLeft);
-                            view.setVisibility(View.INVISIBLE);
-                        }
-                        break;
-                    default:break;
+                    final TextView tvPrice = (TextView) view.getChildAt(1);
+                    String price = tvPrice.getText().toString();
+                    final TextView tvVolume = (TextView) view.getChildAt(2);
+                    String volume = tvVolume.getText().toString();
+                    int priceNumber = Integer.parseInt(price.substring(1));
+                    int volumeNumber = Integer.parseInt(volume.substring(0, volume.length() - 1));
+                    if (capacityLeft - volumeNumber >= 0) {
+                        money += priceNumber;
+                        capacityLeft -= volumeNumber;
+                        total.setText("" + money);
+                        capacity.setText("" + capacityLeft);
+                        view.setVisibility(View.INVISIBLE);
+                    }
                 }
 
                 return true;
@@ -162,7 +157,7 @@ public class PlayActivity extends KnapsackActivity {
                     final int maxScore = knapSack(prices, volumes, 20, N);
 
                     String strTotal = total.getText().toString();
-                    final int playerScore = Integer.parseInt(strTotal.substring(8));
+                    final int playerScore = Integer.parseInt(strTotal);
 
                     int finalScore = playerScore*100/maxScore;
                     myBundle.putInt("score", finalScore + score);
