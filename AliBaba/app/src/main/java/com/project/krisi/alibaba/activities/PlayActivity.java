@@ -1,11 +1,10 @@
-package com.project.krisi.alibaba;
+package com.project.krisi.alibaba.activities;
 
 import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,22 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
+import com.project.krisi.alibaba.R;
+
 import java.util.Random;
 
-public class PlayActivity extends AppCompatActivity {
-
-    public int knapSack(int[] prices, int[] volumes, int capacity, int n){
-        if (n == 0 || capacity == 0) {
-            return 0;
-        }
-        if (volumes[n-1] > capacity) {
-            return knapSack(prices, volumes, capacity, n - 1);
-        }
-        else {
-            return Math.max( prices[n-1] + knapSack(prices, volumes, capacity-volumes[n-1], n-1),
-                    knapSack(prices, volumes, capacity, n-1));
-        }
-    }
+public class PlayActivity extends KnapsackActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,22 +156,7 @@ public class PlayActivity extends AppCompatActivity {
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(N == 3 || N ==4){
-                    Intent playActivityIntent = new Intent(PlayActivity.this, PlayActivity.class);
-                    Bundle myBundle = new Bundle();
-                    final int maxScore = knapSack(prices, volumes, 20, N);
 
-                    String strTotal = total.getText().toString();
-                    final int playerScore = Integer.parseInt(strTotal.substring(8));
-
-                    int finalScore = playerScore*100/maxScore;
-                    myBundle.putInt("score", finalScore + score);
-                    myBundle.putInt("N", N + 1);
-                    playActivityIntent.putExtras(myBundle);
-                    startActivity(playActivityIntent);
-                    finish();
-                }
-                else{
                     Intent savingActivity = new Intent(PlayActivity.this, SavingActivity.class);
                     Bundle myBundle = new Bundle();
                     final int maxScore = knapSack(prices, volumes, 20, N);
@@ -196,7 +169,7 @@ public class PlayActivity extends AppCompatActivity {
                     savingActivity.putExtras(myBundle);
                     startActivity(savingActivity);
                     finish();
-                }
+
             }
         });
     }

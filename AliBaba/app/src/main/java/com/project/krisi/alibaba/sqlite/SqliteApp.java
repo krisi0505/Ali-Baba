@@ -1,4 +1,4 @@
-package com.project.krisi.alibaba;
+package com.project.krisi.alibaba.sqlite;
 
 /**
  * Created by Krisi on 11.10.2017 г..

@@ -1,10 +1,12 @@
-package com.project.krisi.alibaba;
+package com.project.krisi.alibaba.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
+
+import com.project.krisi.alibaba.R;
 
 public class HomeActivity extends AppCompatActivity {
 

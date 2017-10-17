@@ -1,7 +1,9 @@
-package com.project.krisi.alibaba;
+package com.project.krisi.alibaba.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.project.krisi.alibaba.R;
 
 public class InstructionsActivity extends AppCompatActivity {
 

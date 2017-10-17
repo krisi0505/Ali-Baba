@@ -1,4 +1,4 @@
-package com.project.krisi.alibaba;
+package com.project.krisi.alibaba.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.project.krisi.alibaba.models.HighScores;
+import com.project.krisi.alibaba.R;
 
 public class SavingActivity extends AppCompatActivity {
 

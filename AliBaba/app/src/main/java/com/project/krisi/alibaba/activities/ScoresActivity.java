@@ -1,4 +1,4 @@
-package com.project.krisi.alibaba;
+package com.project.krisi.alibaba.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.orm.query.Select;
+import com.project.krisi.alibaba.models.HighScores;
+import com.project.krisi.alibaba.R;
 
 import java.util.List;
 
