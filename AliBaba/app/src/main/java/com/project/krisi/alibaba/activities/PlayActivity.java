@@ -22,7 +22,7 @@ public class PlayActivity extends KnapsackActivity {
         LinearLayout jemContainer =(LinearLayout)findViewById(R.id.precious);
 
         final int score = 0;
-        final int N = 5; // total number of textviews to add
+        final int N = 3; // total number of textviews to add
 
         final int[] prices = new int[N]; // create an empty array;
         final int[] volumes = new int[N]; // create an empty array;
@@ -31,78 +31,15 @@ public class PlayActivity extends KnapsackActivity {
 
             ItemView item = new ItemView(this);
 
-            //create a random price
-//            Random rand = new Random();
-//            int  randomPrice = rand.nextInt(500) + 1;
-//
-//            //create an imageview
-//            final ImageView img = new ImageView(this);
-//            img.setLayoutParams(new LayoutParams(64, 64));
-//            if(randomPrice<100){
-//                img.setImageResource(R.drawable.coins);
-//            }
-//            else if(randomPrice<200){
-//                img.setImageResource(R.drawable.emerald);
-//            }
-//            else if(randomPrice<300){
-//                img.setImageResource(R.drawable.ruby);
-//            }
-//            else if(randomPrice<400){
-//                img.setImageResource(R.drawable.ring);
-//            }
-//            else{
-//                img.setImageResource(R.drawable.diamond);
-//            }
-//
-//            // create a new textview
-//            final TextView price = new TextView(this);
-//
-//            // set some properties of textview
-//            price.setText("$" + randomPrice);
-//            price.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1));
-//            price.setTextSize(20);
-//            price.setTextColor(Color.WHITE);
-//            price.setGravity(17);//center
-//
-//            Random randV = new Random();
-//            int  randomVolume = randV.nextInt(16) + 1;
-//
-//            // create a new textview
-//            final TextView volume = new TextView(this);
-//
-//            // set some properties of textview
-//            volume.setText(randomVolume + "L");
-//            volume.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1));
-//            volume.setTextSize(20);
-//            volume.setTextColor(Color.WHITE);
-//            volume.setGravity(17);//center
-//
-//            //create a linearlayout for each item
-//            final LinearLayout item = new LinearLayout(this);
-//            item.setLayoutParams(new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1));
-//            item.setGravity(17);//center
-//            item.setOrientation(LinearLayout.VERTICAL);
-//            item.setOnTouchListener(new View.OnTouchListener() {
-//                @Override
-//                public boolean onTouch(View v, MotionEvent event) {
-//                    ClipData data = ClipData.newPlainText("","");
-//                    View.DragShadowBuilder myShadowBuilder = new View.DragShadowBuilder(v);
-//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//                        v.startDragAndDrop(data, myShadowBuilder, v,0);
-//                    } else {
-//                        v.startDrag(data, myShadowBuilder, v,0);
-//                    }
-//                    return true;
-//                }
-//            });
-//
-//            // add the textview to the linearlayout
-//            item.addView(img);
-//            item.addView(price);
-//            item.addView(volume);
-
+            //create a linearlayout for each item
+            final LinearLayout l = new LinearLayout(this);
+            l.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
+            l.setGravity(17);//center
+            l.setOrientation(LinearLayout.VERTICAL);
+            l.addView(item);
+            
             //add the item to the linearlayout
-            jemContainer.addView(item);
+            jemContainer.addView(l);
 
             // save a reference to the textview for later
             prices[i-1] = item.mPrice;
