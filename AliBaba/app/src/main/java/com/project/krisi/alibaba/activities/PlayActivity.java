@@ -54,8 +54,8 @@ public class PlayActivity extends KnapsackActivity {
 
         ImageView imgBag = (ImageView)findViewById(R.id.img_bag);
         imgBag.setOnDragListener(new View.OnDragListener() {
-            public int capacityLeft = 20;
-            public int money = 0;
+            private int capacityLeft = 20;
+            private int money = 0;
 
             @Override
             public boolean onDrag(View v, DragEvent event) {
@@ -64,12 +64,13 @@ public class PlayActivity extends KnapsackActivity {
                 if(dragEvent == DragEvent.ACTION_DROP) {
                     final ItemView view = (ItemView) event.getLocalState();
 
-                    final TextView tvPrice = (TextView) view.mTVPrice;
-                    String price = tvPrice.getText().toString();
+                    String price = view.mTVPrice.getText().toString();
+                    int priceNumber = Integer.parseInt(price);
+
                     final TextView tvVolume = (TextView) view.mTVVolume;
                     String volume = tvVolume.getText().toString();
-                    int priceNumber = Integer.parseInt(price.substring(1));
-                    int volumeNumber = Integer.parseInt(volume.substring(0, volume.length() - 1));
+                    int volumeNumber = Integer.parseInt(volume);
+
                     if (capacityLeft - volumeNumber >= 0) {
                         money += priceNumber;
                         capacityLeft -= volumeNumber;

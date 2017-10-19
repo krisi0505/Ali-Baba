@@ -81,13 +81,13 @@ public class ItemView extends LinearLayout {
         }
 
         mTVPrice = (TextView)this.findViewById(R.id.price);
-        mTVPrice.setText("$" + randomPrice);
+        mTVPrice.setText("" + randomPrice);
 
         Random randV = new Random();
         int  randomVolume = randV.nextInt(maxVolume) + 1;
 
         mTVVolume = (TextView)this.findViewById(R.id.volume);
-        mTVVolume.setText(randomVolume + "L");
+        mTVVolume.setText(randomVolume + "");
 
         this.setOnTouchListener(new View.OnTouchListener() {
             @Override
