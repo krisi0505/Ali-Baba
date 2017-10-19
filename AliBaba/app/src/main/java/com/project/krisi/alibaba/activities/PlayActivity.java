@@ -19,29 +19,32 @@ public class PlayActivity extends KnapsackActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        LinearLayout jemContainer =(LinearLayout)findViewById(R.id.precious);
+        LinearLayout gemContainer = (LinearLayout)findViewById(R.id.gem_container);
 
         final int score = 0;
-        final int N = 3; // total number of textviews to add
+        final int N = 3; // total number of items to add
 
         final int[] prices = new int[N]; // create an empty array;
         final int[] volumes = new int[N]; // create an empty array;
 
+        //create items
         for (int i = 1; i <= N; i++) {
 
             ItemView item = new ItemView(this);
 
-            //create a linearlayout for each item
-            final LinearLayout l = new LinearLayout(this);
-            l.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
-            l.setGravity(17);//center
-            l.setOrientation(LinearLayout.VERTICAL);
-            l.addView(item);
-            
-            //add the item to the linearlayout
-            jemContainer.addView(l);
+            //create a LinearLayout for each item
+            final LinearLayout ll = new LinearLayout(this);
 
-            // save a reference to the textview for later
+            //set layout width = 0, height = wrap_content and weight = 1
+            ll.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
+            ll.setGravity(17);//center
+            ll.setOrientation(LinearLayout.VERTICAL);
+            ll.addView(item);
+
+            //add the item to the gemContainer
+            gemContainer.addView(ll);
+
+            // save a reference to the prices and volumes for later
             prices[i-1] = item.mPrice;
             volumes[i-1] = item.mVolume;
         }

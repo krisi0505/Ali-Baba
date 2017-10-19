@@ -25,12 +25,6 @@ public class ItemView extends LinearLayout {
     public TextView mTVVolume;
     public int mPrice;
     public int mVolume;
-    private static final int maxPrice = 500;
-    private static final int maxVolume = 16;
-    private static final int maxCoinCost = 100;
-    private static final int maxRubyCost = 200;
-    private static final int maxEmeraldCost = 300;
-    private static final int maxRingCost = 400;
 
     public ItemView(Context context) {
         super(context);
@@ -57,6 +51,13 @@ public class ItemView extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+
+        final int maxPrice = 500;
+        final int maxVolume = 16;
+        final int maxCoinCost = 100;
+        final int maxRubyCost = 200;
+        final int maxEmeraldCost = 300;
+        final int maxRingCost = 400;
 
         Random randP = new Random();
         int randomPrice = randP.nextInt(maxPrice) + 1;
@@ -104,6 +105,5 @@ public class ItemView extends LinearLayout {
 
         mPrice = randomPrice;
         mVolume = randomVolume;
-
     }
 }
