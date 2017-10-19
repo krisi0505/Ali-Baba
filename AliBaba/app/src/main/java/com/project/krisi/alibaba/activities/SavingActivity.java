@@ -50,6 +50,7 @@ public class SavingActivity extends AppCompatActivity {
                     toast.show();
                     return;
                 }
+
                 if(maxLength < name.length()){
                     Context context = getApplicationContext();
                     CharSequence text = "Your name has to be shorter";
@@ -73,8 +74,5 @@ public class SavingActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
     }
 }
