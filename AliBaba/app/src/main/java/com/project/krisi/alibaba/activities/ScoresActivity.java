@@ -26,12 +26,14 @@ public class ScoresActivity extends AppCompatActivity {
                 .list();
 
         TableLayout table = (TableLayout)findViewById(R.id.table_layout);
+        int count = 1;
 
         for(HighScores result:scores){
             //create text view for the name
             String name = result.getName();
             final TextView tvName = new TextView(this);
-            tvName.setText(name);
+            tvName.setText(count + "." + name);
+            count++;
             tvName.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT));
             tvName.setTextSize(18);

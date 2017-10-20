@@ -1,6 +1,11 @@
 package com.project.krisi.alibaba.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -12,12 +17,18 @@ import com.project.krisi.alibaba.R;
 import com.project.krisi.alibaba.fragments.BagFragment;
 import com.project.krisi.alibaba.views.ItemView;
 
-public class PlayActivity extends KnapsackActivity {
+public class PlayActivity extends KnapsackActivity implements SensorEventListener {
+    private SensorManager senSensorManager;
+    private Sensor senAccelerometer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+
+        senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        senSensorManager.registerListener(this, senAccelerometer , SensorManager.SENSOR_DELAY_NORMAL);
 
         BagFragment bagFragment = new BagFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -75,5 +86,27 @@ public class PlayActivity extends KnapsackActivity {
                     finish();
             }
         });
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        senSensorManager.unregisterListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        senSensorManager.registerListener(this, senAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
     }
 }
