@@ -1,11 +1,11 @@
 package com.project.krisi.alibaba.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import com.project.krisi.alibaba.R;
 
-public abstract class KnapsackActivity extends AppCompatActivity {
+public abstract class KnapsackActivity extends FragmentActivity {
 
     public int knapSack(int[] prices, int[] volumes, int capacity, int n){
         if (n == 0 || capacity == 0) {

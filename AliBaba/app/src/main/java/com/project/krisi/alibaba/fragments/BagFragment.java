@@ -29,8 +29,8 @@ public class BagFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_bag, container, false);
 
-        final TextView capacity = (TextView)root.findViewById(R.id.capacity_number);
-        final TextView total = (TextView)root.findViewById(R.id.total_number);
+        final TextView capacity = (TextView)getActivity().findViewById(R.id.capacity_number);
+        final TextView total = (TextView)getActivity().findViewById(R.id.total_number);
 
         ImageView imgBag = (ImageView)root.findViewById(R.id.img_bag);
         imgBag.setOnDragListener(new View.OnDragListener() {

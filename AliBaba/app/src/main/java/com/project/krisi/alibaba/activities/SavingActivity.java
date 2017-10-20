@@ -20,6 +20,44 @@ public class SavingActivity extends AppCompatActivity {
         tv.setText("Your score is " + score);
     }
 
+    public boolean isValid(String name){
+        //Check if name is too long or too short
+        final int minLength = 2;
+        final int maxLength = 15;
+
+        if(name.length() < minLength){
+            Context context = getApplicationContext();
+            CharSequence text = "Your name has to be longer";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+            return false;
+        }
+
+        if(maxLength < name.length()){
+            Context context = getApplicationContext();
+            CharSequence text = "Your name has to be shorter";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+            return false;
+        }
+
+        //Check if name contains only letters and numbers
+        if(!name.matches("[a-zA-Z0-9]+")){
+            Context context = getApplicationContext();
+            CharSequence text = "Use only letters and numbers";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+            return false;
+        }
+        return true;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,31 +76,7 @@ public class SavingActivity extends AppCompatActivity {
                 EditText et = (EditText)findViewById(R.id.edit_text);
                 String name = et.getText().toString();
 
-                //Check if name is too long or too short
-                final int minLength = 2;
-                final int maxLength = 15;
-                if(name.length() < minLength){
-                    Context context = getApplicationContext();
-                    CharSequence text = "Your name has to be longer";
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                    return;
-                }
-
-                if(maxLength < name.length()){
-                    Context context = getApplicationContext();
-                    CharSequence text = "Your name has to be shorter";
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                    return;
-                }
-
-                //Check if name contains only letters and numbers
-                if(!name.matches("[a-zA-Z0-9]+")){
+                if(!isValid(name)){
                     return;
                 }
 

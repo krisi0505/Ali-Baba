@@ -73,15 +73,6 @@
         android:gravity="center">
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/fragment_bag"
-        android:layout_height="100dp"
-        android:layout_width="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp">
-    </FrameLayout>
-
     <Button
         android:id="@+id/btn_go"
         android:layout_width="wrap_content"
@@ -92,4 +83,14 @@
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
         style="@style/Widget.AppCompat.Button.Colored"/>
+
+    <FrameLayout
+        android:id="@+id/fragment_bag"
+        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp">
+    </FrameLayout>
+
 </RelativeLayout>

@@ -2,12 +2,14 @@ package com.project.krisi.alibaba.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.project.krisi.alibaba.R;
+import com.project.krisi.alibaba.fragments.BagFragment;
 import com.project.krisi.alibaba.views.ItemView;
 
 public class PlayActivity extends KnapsackActivity {
@@ -16,6 +18,11 @@ public class PlayActivity extends KnapsackActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+
+        BagFragment bagFragment = new BagFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.fragment_bag, bagFragment);
+        transaction.commit();
 
         LinearLayout gemContainer = (LinearLayout)findViewById(R.id.gem_container);
 
