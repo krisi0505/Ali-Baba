@@ -2,9 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.krisi.alibaba">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".sqlite.SqliteApp"
@@ -15,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.HomeActivity"
+            android:name=".activities.LevelActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,7 +48,8 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.project.krisi" />
 
-        <activity android:name=".activities.KnapsackActivity"></activity>
+        <activity android:name=".activities.KnapsackActivity" />
+        <activity android:name=".activities.HomeActivity"></activity>
     </application>
 
 </manifest>
