@@ -2,14 +2,15 @@ package com.project.krisi.alibaba.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.orm.query.Select;
-import com.project.krisi.alibaba.models.HighScores;
 import com.project.krisi.alibaba.R;
+import com.project.krisi.alibaba.models.HighScores;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ScoresActivity extends AppCompatActivity {
 
         List<HighScores> scores = Select.from(HighScores.class)
                 .orderBy("score desc")
-                .limit("10")
+                .limit("30")
                 .list();
 
         TableLayout table = (TableLayout)findViewById(R.id.table_layout);
@@ -64,5 +65,9 @@ public class ScoresActivity extends AppCompatActivity {
             //add the row to the table
             table.addView(row);
         }
+
+
+
+        ImageView background = (ImageView)findViewById(R.id.desert);
     }
 }

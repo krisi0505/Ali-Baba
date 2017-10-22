@@ -1,5 +1,6 @@
 package com.project.krisi.alibaba.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -52,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
         File localFile = null;
         try {
             localFile = File.createTempFile("images", "jpg");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -61,12 +64,24 @@ public class HomeActivity extends AppCompatActivity {
                     public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                         // Successfully downloaded data to local file
                         // ...
+                        Context context = getApplicationContext();
+                        CharSequence text = "Got the file!";
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
                 // Handle failed download
                 // ...
+                Context context = getApplicationContext();
+                CharSequence text = "Nope";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
         });
 

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -88,5 +89,16 @@ public class SavingActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        OnSwipeTouchListener onSwipeTouchListener = new OnSwipeTouchListener(SavingActivity.this) {
+            @Override
+            public void onSwipeRight() {
+                Intent scoresActivity = new Intent(SavingActivity.this, ScoresActivity.class);
+                startActivity(scoresActivity);
+            }
+        };
+
+        ImageView background = (ImageView)findViewById(R.id.cave);
+        background.setOnTouchListener(onSwipeTouchListener);
     }
 }

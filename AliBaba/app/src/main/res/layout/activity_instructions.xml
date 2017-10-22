@@ -24,13 +24,74 @@
             android:textSize="40dp"
             android:gravity="center" />
 
-        <TextView
-            android:id="@+id/instructions_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            style="@style/TextStyle"
-            android:text="@string/instructions_content"
-            android:gravity="center" />
+        <!--<ScrollView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<TableLayout-->
+                <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:shrinkColumns="*"-->
+                <!--android:stretchColumns="*"-->
+                <!--android:paddingTop="0dp"-->
+                <!--android:layout_marginTop="0dp">-->
+
+                <!--<TableRow-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:gravity="center_horizontal">-->
+                    <!--<TextView-->
+                        <!--android:id="@+id/instructions_content"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--style="@style/TextStyle"-->
+                        <!--android:text="@string/instructions_content"-->
+                        <!--android:gravity="center" />-->
+                <!--</TableRow>-->
+                <!--<TableRow-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:gravity="center_horizontal">-->
+                    <!--<LinearLayout>-->
+                        <!--<ImageView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--style="@style/TextStyle"-->
+                            <!--android:src="@drawable/map"-->
+                            <!--android:gravity="center" />-->
+                    <!--</LinearLayout>-->
+
+                <!--</TableRow>-->
+            <!--</TableLayout>-->
+        <!--</ScrollView>-->
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextStyle"
+                    android:src="@drawable/map"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/instructions_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TextStyle"
+                    android:text="@string/instructions_content"
+                    android:gravity="center" />
+
+            </RelativeLayout>
+        </ScrollView>
+
     </LinearLayout>
 
 </RelativeLayout>

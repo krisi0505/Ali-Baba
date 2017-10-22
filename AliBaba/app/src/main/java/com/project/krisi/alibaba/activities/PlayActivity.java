@@ -86,6 +86,7 @@ public class PlayActivity extends KnapsackActivity implements SensorEventListene
                     finish();
             }
         });
+
     }
 
     @Override

@@ -5,6 +5,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
+        android:id="@+id/desert"
         android:src="@drawable/desert"
         android:scaleType = "centerCrop"
         android:layout_height="fill_parent"
@@ -22,40 +23,45 @@
             android:text="High Scores"
             android:textSize="40dp"
             android:gravity="center" />
-
-        <TableLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/table_layout"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:shrinkColumns="*"
-            android:stretchColumns="*">
-            <TableRow
-                android:id="@+id/tableRow1"
-                android:layout_height="wrap_content"
+            android:layout_height="match_parent">
+            <TableLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/table_layout"
                 android:layout_width="match_parent"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:shrinkColumns="*"
+                android:stretchColumns="*">
+                <TableRow
+                    android:id="@+id/tableRow1"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:typeface="serif"
-                    android:textSize="18dp"
-                    android:text="Name"
-                    android:gravity="center"
-                    android:layout_span="6"></TextView>
-
-                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:typeface="serif"
-                    android:textSize="18dp"
-                    android:text="Score"
-                    android:gravity="center"
-                    android:layout_span="6"></TextView>
-            </TableRow>
-        </TableLayout>
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:typeface="serif"
+                        android:textSize="18dp"
+                        android:text="Name"
+                        android:gravity="center"
+                        android:layout_span="6"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:typeface="serif"
+                        android:textSize="18dp"
+                        android:text="Score"
+                        android:gravity="center"
+                        android:layout_span="6"></TextView>
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+
+
     </LinearLayout>
 </RelativeLayout>

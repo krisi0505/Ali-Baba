@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.project.krisi.alibaba.R;
 import com.project.krisi.alibaba.views.ItemView;
 
+import uk.co.senab.photoview.PhotoViewAttacher;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -63,6 +65,8 @@ public class BagFragment extends Fragment {
                 return true;
             }
         });
+
+
 
         // Inflate the layout for this fragment
         return root;
