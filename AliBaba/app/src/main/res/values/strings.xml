@@ -4,9 +4,6 @@
         Ali Baba has found the secret cave of the forty thieves.
         The cave is full of coins, jewelry, gold and all kind of treasures.
         Ali Baba has a bag in which he can take some but not everything as the bag has a limited capacity.
-        Help him make the most out of the situation.
+        Help him make the most out of the situation. Here is a map of the desert where the cave is hidden:
     </string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

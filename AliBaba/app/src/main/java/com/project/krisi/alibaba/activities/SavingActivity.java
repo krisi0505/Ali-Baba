@@ -95,6 +95,7 @@ public class SavingActivity extends AppCompatActivity {
             public void onSwipeRight() {
                 Intent scoresActivity = new Intent(SavingActivity.this, ScoresActivity.class);
                 startActivity(scoresActivity);
+                finish();
             }
         };
 

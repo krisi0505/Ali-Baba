@@ -20,6 +20,11 @@ import com.project.krisi.alibaba.views.ItemView;
 public class PlayActivity extends KnapsackActivity implements SensorEventListener {
     private SensorManager senSensorManager;
     private Sensor senAccelerometer;
+    final int N = 3; // total number of items to add
+
+    public int getN(){
+        return N;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,7 @@ public class PlayActivity extends KnapsackActivity implements SensorEventListene
         LinearLayout gemContainer = (LinearLayout)findViewById(R.id.gem_container);
 
         final int score = 0;
-        final int N = 3; // total number of items to add
+
 
         final int[] prices = new int[N]; // create an empty array;
         final int[] volumes = new int[N]; // create an empty array;

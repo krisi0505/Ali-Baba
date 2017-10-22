@@ -101,6 +101,7 @@ public class ItemView extends LinearLayout {
                 }
                 return true;
             }
+
         });
 
         mPrice = randomPrice;

@@ -11,14 +11,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.project.krisi.alibaba.R;
+import com.project.krisi.alibaba.activities.PlayActivity;
 import com.project.krisi.alibaba.views.ItemView;
-
-import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class BagFragment extends Fragment {
+    private int viewCount = 0;
+    private int capacityLeft = 20;
+    private int money = 0;
 
 
     public BagFragment() {
@@ -34,10 +36,10 @@ public class BagFragment extends Fragment {
         final TextView capacity = (TextView)getActivity().findViewById(R.id.capacity_number);
         final TextView total = (TextView)getActivity().findViewById(R.id.total_number);
 
+        final ItemView[] views = new ItemView[((PlayActivity)getActivity()).getN()];
+
         ImageView imgBag = (ImageView)root.findViewById(R.id.img_bag);
         imgBag.setOnDragListener(new View.OnDragListener() {
-            private int capacityLeft = 20;
-            private int money = 0;
 
             @Override
             public boolean onDrag(View v, DragEvent event) {
@@ -59,6 +61,8 @@ public class BagFragment extends Fragment {
                         total.setText("" + money);
                         capacity.setText("" + capacityLeft);
                         view.setVisibility(View.INVISIBLE);
+                        views[viewCount] = view;
+                        viewCount++;
                     }
                 }
 
@@ -66,8 +70,21 @@ public class BagFragment extends Fragment {
             }
         });
 
+        imgBag.setOnLongClickListener(new View.OnLongClickListener(){
 
-
+            @Override
+            public boolean onLongClick(View v) {
+                for(int i = 0; i< viewCount; i++){
+                    views[i].setVisibility(View.VISIBLE);
+                }
+                viewCount = 0;
+                total.setText("0");
+                capacity.setText("20");
+                money = 0;
+                capacityLeft = 20;
+                return true;
+            }
+        });
         // Inflate the layout for this fragment
         return root;
     }
