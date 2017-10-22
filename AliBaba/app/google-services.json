@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "88304567761",
+    "firebase_url": "https://alibaba-c1241.firebaseio.com",
+    "project_id": "alibaba-c1241",
+    "storage_bucket": "alibaba-c1241.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88304567761:android:97e51aab29ab2ddb",
+        "android_client_info": {
+          "package_name": "com.project.krisi.alibaba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88304567761-kbrabaos75hdrddm1rtqvokhh68fabl1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.krisi.alibaba",
+            "certificate_hash": "6c62ef7c8ddb304e80fa1202da50cfdbc39f94d4"
+          }
+        },
+        {
+          "client_id": "88304567761-51m2pu7m345dufj70c04ulp3fe391vv1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRBLuwfdFP3jwtmK6VS2eoD6tMuTfoosY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88304567761-51m2pu7m345dufj70c04ulp3fe391vv1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
