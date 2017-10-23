@@ -30,6 +30,15 @@
             android:text="0"
             android:textSize="20dp"
             android:textColor="#FFFFFF" />
+
+        <ImageView
+            android:id="@+id/item1"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:layout_marginLeft="-30dp"
+            android:layout_marginTop="-60dp"
+            android:clipChildren="false"
+            android:src="@drawable/emerald" />
     </LinearLayout>
 
     <LinearLayout

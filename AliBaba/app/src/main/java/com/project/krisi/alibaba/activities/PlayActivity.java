@@ -24,6 +24,11 @@ public class PlayActivity extends KnapsackActivity implements SensorEventListene
     private long lastUpdate = 0;
     private float last_x, last_y, last_z;
     private static final int SHAKE_THRESHOLD = 600;
+    //ImageView fallingEmerald = (ImageView)findViewById(R.id.item1);
+//    final TranslateAnimation translateAnimation =
+//            new TranslateAnimation(Animation.ABSOLUTE, 0,
+//                    Animation.RELATIVE_TO_PARENT, 1,
+//                    Animation.ABSOLUTE, 0, Animation.ABSOLUTE, 100);
 
     public int getN(){
         return N;
@@ -33,6 +38,8 @@ public class PlayActivity extends KnapsackActivity implements SensorEventListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+
+        //translateAnimation.setDuration(1000);
 
         senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -111,7 +118,20 @@ public class PlayActivity extends KnapsackActivity implements SensorEventListene
             if ((curTime - lastUpdate) > 100) {
                 long diffTime = (curTime - lastUpdate);
                 lastUpdate = curTime;
+
+                float speed = Math.abs(x + y + z - last_x - last_y - last_z)/ diffTime * 10000;
+
+                if (speed > SHAKE_THRESHOLD) {
+                    //Context context = getApplicationContext();
+//                    fallingEmerald.startAnimation(AnimationUtils.loadAnimation(context, R.anim.translate));
+                }
+
+                last_x = x;
+                last_y = y;
+                last_z = z;
             }
+
+
         }
     }
 
