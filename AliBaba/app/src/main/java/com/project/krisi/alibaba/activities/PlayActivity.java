@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.project.krisi.alibaba.R;
 import com.project.krisi.alibaba.fragments.BagFragment;
@@ -125,6 +126,12 @@ public class PlayActivity extends KnapsackActivity implements SensorEventListene
 
                 if (speed > SHAKE_THRESHOLD) {
                     Context context = getApplicationContext();
+                    CharSequence text = "Use only letters and numbers";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
                     ImageView fallingEmerald = (ImageView)findViewById(R.id.item1);
                     fallingEmerald.bringToFront();
                     fallingEmerald.startAnimation(AnimationUtils.loadAnimation(context, R.anim.translate));
