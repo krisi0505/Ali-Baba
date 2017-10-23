@@ -9,7 +9,9 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -122,8 +124,10 @@ public class PlayActivity extends KnapsackActivity implements SensorEventListene
                 float speed = Math.abs(x + y + z - last_x - last_y - last_z)/ diffTime * 10000;
 
                 if (speed > SHAKE_THRESHOLD) {
-                    //Context context = getApplicationContext();
-//                    fallingEmerald.startAnimation(AnimationUtils.loadAnimation(context, R.anim.translate));
+                    Context context = getApplicationContext();
+                    ImageView fallingEmerald = (ImageView)findViewById(R.id.item1);
+                    fallingEmerald.bringToFront();
+                    fallingEmerald.startAnimation(AnimationUtils.loadAnimation(context, R.anim.translate));
                 }
 
                 last_x = x;
