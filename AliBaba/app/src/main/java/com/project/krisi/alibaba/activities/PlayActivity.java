@@ -21,6 +21,9 @@ public class PlayActivity extends KnapsackActivity implements SensorEventListene
     private SensorManager senSensorManager;
     private Sensor senAccelerometer;
     final int N = 3; // total number of items to add
+    private long lastUpdate = 0;
+    private float last_x, last_y, last_z;
+    private static final int SHAKE_THRESHOLD = 600;
 
     public int getN(){
         return N;
@@ -95,12 +98,25 @@ public class PlayActivity extends KnapsackActivity implements SensorEventListene
     }
 
     @Override
-    public void onSensorChanged(SensorEvent event) {
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Sensor mySensor = sensorEvent.sensor;
 
+        if (mySensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            float x = sensorEvent.values[0];
+            float y = sensorEvent.values[1];
+            float z = sensorEvent.values[2];
+
+            long curTime = System.currentTimeMillis();
+
+            if ((curTime - lastUpdate) > 100) {
+                long diffTime = (curTime - lastUpdate);
+                lastUpdate = curTime;
+            }
+        }
     }
 
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    public void onAccuracyChanged(Sensor sensorEvent, int accuracy) {
 
     }
 
