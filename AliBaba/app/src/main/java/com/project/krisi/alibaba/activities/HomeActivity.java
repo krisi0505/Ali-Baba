@@ -104,6 +104,15 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        Button btnMap = (Button) findViewById(R.id.btn_map);
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mapActivity = new Intent(HomeActivity.this, TreasureMapActivity.class);
+                startActivity(mapActivity);
+            }
+        });
+
         Button btnHighScores = (Button) findViewById(R.id.btn_scores);
         btnHighScores.setOnClickListener(new View.OnClickListener() {
             @Override

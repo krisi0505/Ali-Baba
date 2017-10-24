@@ -3,7 +3,7 @@
     package="com.project.krisi.alibaba">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".sqlite.SqliteApp"
@@ -49,7 +49,8 @@
             android:value="com.project.krisi" />
 
         <activity android:name=".activities.KnapsackActivity" />
-        <activity android:name=".activities.LevelActivity"></activity>
+        <activity android:name=".activities.LevelActivity" />
+        <activity android:name=".activities.TreasureMapActivity"></activity>
     </application>
 
 </manifest>

@@ -62,15 +62,6 @@
             android:text="0"
             android:textSize="20dp"
             android:textColor="#FFFFFF" />
-
-        <!--<ImageView-->
-            <!--android:id="@+id/item1"-->
-            <!--android:layout_width="40dip"-->
-            <!--android:layout_height="40dip"-->
-            <!--android:layout_marginLeft="-30dp"-->
-            <!--android:layout_marginTop="-35dp"-->
-            <!--android:clipChildren="false"-->
-            <!--android:src="@drawable/emerald" />-->
     </LinearLayout>
 
     <LinearLayout
