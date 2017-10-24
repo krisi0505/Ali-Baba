@@ -18,13 +18,28 @@
         android:gravity="center">
 
         <ImageView
+            android:id="@+id/item2"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginTop="-273dp"
+            android:clipChildren="false"
+            android:src="@drawable/diamond" />
+        <ImageView
             android:id="@+id/item1"
             android:layout_width="40dip"
             android:layout_height="40dip"
-            android:layout_marginLeft="-20dp"
-            android:layout_marginTop="-269dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="-273dp"
             android:clipChildren="false"
             android:src="@drawable/emerald" />
+        <ImageView
+            android:id="@+id/item3"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="-273dp"
+            android:clipChildren="false"
+            android:src="@drawable/ruby" />
     </LinearLayout>
 
     <LinearLayout
