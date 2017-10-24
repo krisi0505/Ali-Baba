@@ -85,6 +85,7 @@ public class BagFragment extends Fragment {
                 return true;
             }
         });
+
         // Inflate the layout for this fragment
         return root;
     }

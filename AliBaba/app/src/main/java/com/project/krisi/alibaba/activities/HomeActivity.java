@@ -89,7 +89,7 @@ public class HomeActivity extends AppCompatActivity {
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent playActivity = new Intent(HomeActivity.this, PlayActivity.class);
+                Intent playActivity = new Intent(HomeActivity.this, LevelActivity.class);
 
                 startActivity(playActivity);
             }

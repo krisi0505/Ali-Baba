@@ -91,7 +91,7 @@ public class OnSwipeTouchListener implements OnTouchListener {
                 } else {
                     if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
                         if (diffY > 0) {
-                            onSwipeBottom(velocityX, velocityY);
+                            onSwipeBottom();
                         } else {
                             onSwipeTop();
                         }
@@ -125,40 +125,7 @@ public class OnSwipeTouchListener implements OnTouchListener {
     /**
      * On swipe bottom.
      */
-    public void onSwipeBottom(float velocityX, float velocityY) {
-//        releaseEdgeEffects();
-//        // Flings use math in pixels (as opposed to math based on the viewport).
-//        Point surfaceSize = computeScrollSurfaceSize();
-//        mScrollerStartViewport.set(mCurrentViewport);
-//        int startX = (int) (surfaceSize.x * (mScrollerStartViewport.left -
-//                AXIS_X_MIN) / (
-//                AXIS_X_MAX - AXIS_X_MIN));
-//        int startY = (int) (surfaceSize.y * (AXIS_Y_MAX -
-//                mScrollerStartViewport.bottom) / (
-//                AXIS_Y_MAX - AXIS_Y_MIN));
-//        // Before flinging, aborts the current animation.
-//        mScroller.forceFinished(true);
-//        // Begins the animation
-//        mScroller.fling(
-//                // Current scroll position
-//                startX,
-//                startY,
-//                velocityX,
-//                velocityY,
-//            /*
-//             * Minimum and maximum scroll positions. The minimum scroll
-//             * position is generally zero and the maximum scroll position
-//             * is generally the content size less the screen size. So if the
-//             * content width is 1000 pixels and the screen width is 200
-//             * pixels, the maximum scroll offset should be 800 pixels.
-//             */
-//                0, surfaceSize.x - mContentRect.width(),
-//                0, surfaceSize.y - mContentRect.height(),
-//                // The edges of the content. This comes into play when using
-//                // the EdgeEffect class to draw "glow" overlays.
-//                mContentRect.width() / 2,
-//                mContentRect.height() / 2);
-//        // Invalidates to trigger computeScroll()
-//        ViewCompat.postInvalidateOnAnimation(this);
+    public void onSwipeBottom() {
+
     }
 }
