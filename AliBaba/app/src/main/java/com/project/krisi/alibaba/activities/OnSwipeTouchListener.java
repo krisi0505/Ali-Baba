@@ -15,12 +15,6 @@ import android.view.View.OnTouchListener;
 import android.widget.OverScroller;
 
 public class OnSwipeTouchListener implements OnTouchListener {
-
-//    private RectF mCurrentViewport =
-//            new RectF(AXIS_X_MIN, AXIS_Y_MIN, AXIS_X_MAX, AXIS_Y_MAX);
-
-    // The current destination rectangle (in pixel coordinates) into which the
-// chart data should be drawn.
     private Rect mContentRect;
 
     private OverScroller mScroller;
@@ -29,28 +23,14 @@ public class OnSwipeTouchListener implements OnTouchListener {
     private final GestureDetector gestureDetector;
     private Context context;
 
-    /* (non-Javadoc)
-     * @see android.view.View.OnTouchListener#onTouch(android.view.View, android.view.MotionEvent)
-     */
     public boolean onTouch(final View view, final MotionEvent motionEvent) {
         return gestureDetector.onTouchEvent(motionEvent);
     }
 
-    /**
-     * Gets the gesture detector.
-     *
-     * @return the gesture detector
-     */
     public GestureDetector getGestureDetector(){
         return  gestureDetector;
     }
 
-    /**
-     * Instantiates a new on swipe touch listener.
-     *
-     * @param context
-     *            the context
-     */
     public OnSwipeTouchListener(Context context) {
         super();
         this.context = context;
@@ -62,17 +42,10 @@ public class OnSwipeTouchListener implements OnTouchListener {
         private static final int SWIPE_THRESHOLD = 100;
         private static final int SWIPE_VELOCITY_THRESHOLD = 100;
 
-        /* (non-Javadoc)
-         * @see android.view.GestureDetector.SimpleOnGestureListener#onDown(android.view.MotionEvent)
-         */
         @Override
         public boolean onDown(MotionEvent e) {
             return true;
         }
-
-    /* (non-Javadoc)
-     * @see android.view.GestureDetector.SimpleOnGestureListener#onFling(android.view.MotionEvent, android.view.MotionEvent, float, float)
-     */
 
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
@@ -104,27 +77,15 @@ public class OnSwipeTouchListener implements OnTouchListener {
         }
     }
 
-    /**
-     * On swipe right.
-     */
     public void onSwipeRight() {
     }
 
-    /**
-     * On swipe left.
-     */
     public void onSwipeLeft() {
     }
 
-    /**
-     * On swipe top.
-     */
     public void onSwipeTop() {
     }
 
-    /**
-     * On swipe bottom.
-     */
     public void onSwipeBottom() {
 
     }

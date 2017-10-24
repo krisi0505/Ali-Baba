@@ -26,7 +26,9 @@ public class LevelActivity extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.level);
         chest.startAnimation(animation);
 
-        new Handler().postDelayed(new Runnable(){
+        Handler handler = new Handler();
+
+        handler.postDelayed(new Runnable(){
             @Override
             public void run() {
             /* Create an Intent that will start the Menu-Activity. */

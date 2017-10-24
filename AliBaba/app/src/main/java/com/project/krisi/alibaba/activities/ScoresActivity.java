@@ -2,7 +2,6 @@ package com.project.krisi.alibaba.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -65,9 +64,5 @@ public class ScoresActivity extends AppCompatActivity {
             //add the row to the table
             table.addView(row);
         }
-
-
-
-        ImageView background = (ImageView)findViewById(R.id.desert);
     }
 }

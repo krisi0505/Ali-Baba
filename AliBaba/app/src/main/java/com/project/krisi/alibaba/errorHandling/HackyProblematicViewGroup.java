@@ -4,10 +4,6 @@ import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
-/**
- * Created by Krisi on 24.10.2017 г..
- */
-
 public class HackyProblematicViewGroup extends LinearLayout {
 
     public HackyProblematicViewGroup(Context context) {

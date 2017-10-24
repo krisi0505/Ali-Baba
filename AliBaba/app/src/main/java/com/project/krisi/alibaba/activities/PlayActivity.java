@@ -38,18 +38,6 @@ public class PlayActivity extends KnapsackActivity implements SensorEventListene
         setContentView(R.layout.activity_play);
 
         ImageView background = (ImageView)findViewById(R.id.background);
-//        background.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                Context context = getApplicationContext();
-//                CharSequence text = "Hint: Long press the bag to retrieve items";
-//                int duration = Toast.LENGTH_SHORT;
-//
-//                Toast toast = Toast.makeText(context, text, duration);
-//                toast.show();
-//                return true;
-//            }
-//        });
 
         OnSwipeTouchListener onSwipeTouchListener = new OnSwipeTouchListener(PlayActivity.this) {
             @Override
