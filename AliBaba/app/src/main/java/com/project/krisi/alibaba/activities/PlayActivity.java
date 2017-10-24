@@ -8,12 +8,14 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.project.krisi.alibaba.R;
 import com.project.krisi.alibaba.fragments.BagFragment;
@@ -26,11 +28,6 @@ public class PlayActivity extends KnapsackActivity implements SensorEventListene
     private long lastUpdate = 0;
     private float last_x, last_y, last_z;
     private static final int SHAKE_THRESHOLD = 600;
-    //ImageView fallingEmerald = (ImageView)findViewById(R.id.item1);
-//    final TranslateAnimation translateAnimation =
-//            new TranslateAnimation(Animation.ABSOLUTE, 0,
-//                    Animation.RELATIVE_TO_PARENT, 1,
-//                    Animation.ABSOLUTE, 0, Animation.ABSOLUTE, 100);
 
     public int getN(){
         return N;
@@ -41,7 +38,19 @@ public class PlayActivity extends KnapsackActivity implements SensorEventListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        //translateAnimation.setDuration(1000);
+        ImageView background = (ImageView)findViewById(R.id.background);
+        background.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Context context = getApplicationContext();
+                CharSequence text = "Hint: Long press the bag to retrieve items";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                return true;
+            }
+        });
 
         senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);

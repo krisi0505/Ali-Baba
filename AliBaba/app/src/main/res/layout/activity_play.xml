@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/background"
         android:src="@drawable/treasure"
         android:scaleType = "centerCrop"
         android:layout_height="fill_parent"
